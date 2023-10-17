@@ -1,5 +1,5 @@
 {
-  "name": "remark-directive-v3-test",
+  "name": "remark-directive-v3-astro-test",
   "type": "module",
   "version": "0.0.1",
   "scripts": {

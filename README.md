@@ -1,47 +1,21 @@
-# Astro Starter Kit: Minimal
+# check remark-directive v3
 
-```sh
-npm create astro@latest -- --template minimal
-```
+`remark-directive` v3を使って、Markdownに独自のディレクティブ記法を導入する実験です。
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## `vanilla` directory
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`unified().use()`を連ねて記述する、一般的な使用法です。
 
-## 🚀 Project Structure
+`yarn start`を実行すると、コンソールに、example.mdを変換したHTMLが表示されます。
 
-Inside of your Astro project, you'll see the following folders and files:
+これは正常に動作しています。
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## `astro` directory
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+AstroのIntegrationとしてディレクティブ記法の変換を実装し、pages配下のMarkdownでディレクティブ記法を使えるようにしたものです。
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+これはうまく動作しません。
 
-Any static assets, like images, can be placed in the `public/` directory.
+`yarn dev`でローカルサーバーを立ち上げ、トップページをブラウザで表示すると、次のようなエラーになります。
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+![](doc/assets/astro-directiveAttributes-error.png)
